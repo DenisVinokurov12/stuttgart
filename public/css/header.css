@@ -1,0 +1,93 @@
+header {
+    background-color: rgba(0, 0, 0, 0.75);
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    position: fixed;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    vertical-align: middle;
+    color: #fff200;
+    width: 15%;
+    font-size: 32px;
+}
+
+header .logo-flex {
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    color: #fff200;
+    font-size: 32px;
+}
+
+header .logo-flex span {
+    margin-left: 5%;
+    font-family: Kurale, serif;
+}
+
+header .main_menu {
+    font-size: 16px;
+}
+
+header .main_menu ul {
+    list-style-type: none;
+    display: flex;
+    text-shadow: 0 4px 15px #000000;
+}
+
+header .main_menu li {
+    margin: 0 25px;
+    cursor: pointer;
+}
+
+header a.active {
+    position: relative;
+}
+
+header a.active::after {
+    content: "";
+    background: rgba(255, 242, 0, 0.75);
+    position: absolute;
+    bottom: -1vh;
+    left: -10%;
+    width: 120%;
+    height: 4px;
+    border-radius: 15px;
+}
+
+header .contact_panel {
+    width: 15%;
+    font-size: 20px;
+}
+
+header .contact_panel_wrapper {
+    float: right;
+}
+
+header .contact_panel div {
+    display: inline-block;
+}
+
+header .action_get_call {
+    margin-bottom: 10px;
+}
+
+header .contact_panel .socials {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header .contact_panel img {
+    width: 32px;
+}

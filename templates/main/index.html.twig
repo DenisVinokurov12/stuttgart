@@ -1,0 +1,225 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stuttgart{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/main/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main/form.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="preview prime_block">
+        <video autoplay muted loop id="preview_video">
+            <source src="{{ asset('video/preview' ~ random(1, 2) ~ '.MOV') }}" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="container" style="position: relative; height: 90vh; overflow: visible">
+            <div class="motto left_hidden">
+                Детейлинг-студия<br>
+                нового уровня
+            </div>
+        </div>
+    </div>
+    <script src=""></script>
+
+    <div class="about_us content_block prime_block" id="about_us">
+        <div class="container">
+            <div class="first_line left_hidden">
+                <span class="about_us_main">
+                    <span class="main_color">Stuttgart</span> - уникальный детейлинг-салон Екатеринбурга, со своей собственной философией и подходом к гостям. Машина нашего клиента - наша машина и такой подход сохраняется вне зависимости от оказываемой услуги и обслуживаемого автомобиля.
+                </span>
+                <img src="{{ asset('images/main/aboutUs/line2.webp') }}" alt="">
+            </div>
+            <div class="second_line right_hidden">
+                <img src="{{ asset('images/main/aboutUs/line1.webp') }}" alt="">
+                <span class="about_us_secondary">
+                    Наш авто-спа центр рад принять вас и помочь обновить или освежить внешний вид вашего железного коня. Для этого у нас доступны 4 направления:
+                    {% for group in groups %}
+                        <span class="direction main_color"><a href="">—  {{ group.getLabel() }}</a></span>
+                    {% endfor %}
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="services content_block prime_block" id="services">
+        <div class="container">
+            <div class="main_services_block">
+                <div class="groups left_hidden">
+                    {% for group in groups %}
+                        <div class="group" data-name="{{ group.getName() }}">
+                            <a href="">
+                                <div class="overlay">
+                                    <div class="overlay">
+                                        <div class="group_name">
+                                            {{ group.getLabel() }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <img src="{{ asset('images/main/services/'~ group.getName() ~'.jpg') }}" alt="">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="categories right_hidden">
+                    {% for group in groups %}
+                        {% set categories = group.getCategories().getValues() %}
+                        <div class="categories_container" data-groupname="{{ group.getName() }}" style="display: none;">
+                            <div class="group_title">{{ group.getLabel() }}</div>
+                            <div class="categories_box">
+                                <ul>
+                                    {% for category in categories %}
+                                        <a href="{{ path('category_page', {'id': category.getId()}) }}">
+                                            <li class="category">
+                                                <span class="category_title">{{ category.getLabel() }}</span>
+                                                <span class="category_min_price">от {{ category.getMinPrice() }}р.</span>
+                                            </li>
+                                        </a>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/main/services.js') }}"></script>
+
+    <div class="specials content_block main_block">
+        <div class="specials_wrapper">
+            <div class="container">
+                <div class="slider">
+                    <span class="prev"><img src="{{ asset('images/main/specials/leftArrow.svg') }}" alt=""></span>
+                    <div class="main_wrapper">
+                        {% for special in specials %}
+                            <span class="slider_item" title="{{ special.getText() }}">
+                                {{ special.getLabel() }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                    <span class="next"><img src="{{ asset('images/main/specials/rightArrow.svg') }}" alt=""></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/main/specials.js') }}"></script>
+
+    <div class="advantages content_block main_block" id="advantages">
+        <div class="container">
+            
+
+        </div>
+    </div>
+
+    <div class="reviews content_block main_block" id="reviews" data-currentreview="0">
+        <div class="container">
+            <div class="slider">
+                <span class="prev"><img src="{{ asset('images/main/specials/leftArrow.svg') }}" alt=""></span>
+                <div class="main_wrapper">
+                    {% for review in reviews %}
+                        <div class="review_box">
+                            <div class="client_info">
+                                <span class="client_name">{{ review.getClientName() }}</span>,
+                                <span class="client_visit_day">{{ review.getVisitDate() }}</span>
+                            </div>
+                            <div class="car_info">
+                                <span class="car_name">{{ review.getCar() }}</span>,
+                                <span class="car_service">{{ review.getService() }}</span>
+                            </div>
+                            <div class="review_body">{{ review.getText() }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <span class="next"><img src="{{ asset('images/main/specials/rightArrow.svg') }}" alt=""></span>
+            </div>
+            <div class="slider_counter">
+                <div class="slider_counter_wrapper">
+                    {% for key, review in reviews %}
+                        <span class="review_counter" data-currentreview="{{ key }}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/main/reviews.js') }}"></script>
+
+    {% if worksPhotosByGroups is not empty %}
+        <div class="works content_block main_block" id="works">
+            <div class="container">
+                {% for key, groupData in worksPhotosByGroups %}
+                    <div class="group_wrapper {% if key != 'detailing' %}hidden{% endif %}" >
+                        {% for categoryData in groupData.categories %}
+                            <div class="category_wrapper">
+                                <div class="category_title">{{ groupData.group.getLabel() }}. {{ categoryData.category.getLabel() }}</div>
+                                <div class="gallery">
+                                    {% for photo in categoryData.photos %}
+                                        <img src="{{ asset('images/main/works/' ~ photo.getPath()) }}" alt="" data-fancybox="{{ categoryData.category.getName() }}">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="all_works"><span><a>Все работы</a></span></div>
+            </div>
+        </div>
+        <script type="text/javascript" src="{{ asset('js/main/works.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
+    {% endif %}
+
+    <div class="contacts content_block main_block" id="contacts">
+        <div class="container">
+
+        </div>
+    </div>
+
+    <div class="form content_block main_block" id="form">
+        <div class="container">
+            <form class="form_wrapper" name="call_order" action="#">
+                <div class="form_title">Закажите звонок</div>
+                <div class="form_controls">
+                    <div class="form_group">
+                        <input type="text" class="form_field" placeholder="ФИО" name="name" id="name" autocomplete="off">
+                        <label for="fio" class="form_label">Имя</label>
+                    </div>
+                    <div class="form_group">
+                        <input type="text" class="form_field" placeholder="Телефон" name="phone" id="phone" autocomplete="off">
+                        <label for="phone" class="form_label">Телефон</label>
+                    </div>
+                    <div class="form_group form_select">
+                        <input type="text" class="form_field" placeholder="Категория" name="category" id="category" autocomplete="off">
+                        <label for="category" class="form_label">Категория</label>
+                        <div class="dropdown">
+                            <ul>
+                                {% for group in groups %}
+                                    {% if group.getName() != 'washing' %}
+                                        {% set categories = group.getCategories().getValues() %}
+                                        {% if categories is not empty %}
+                                            {% for category in categories %}
+                                                <li class="option" data-value="{{ category.getLabel() }}">{{ category.getLabel() }}</li>
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="submit_button">
+                    <button type="submit" class="button">Заказать</button>
+                </div>
+            </form>
+            <script src="{{ asset('js/main/form.js') }}" type="text/javascript"></script>
+
+        </div>
+    </div>
+
+    <div class="yandex_map content_block">
+        <div id="map">
+
+        </div>
+    </div>
+
+{% endblock %}

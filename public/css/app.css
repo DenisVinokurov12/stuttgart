@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("../images/bg.jpg");
+    background-size: contain;
+    color: #fff;
+    font-family: "Tenor Sans", sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #fff200;
+    text-shadow: 0 0 15px #fff200;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    font-size: 32px;
+}
+
+.hidden {
+    display: none;
+}
+
+.main_action {
+    color: #fff200;
+}
+
+.main_color {
+    color: #fff200;
+}
+
+.block_title {
+    margin: 5vh 0;
+    font-size: 48px;
+}
+
+.content_block {
+    margin: 20vh 0;
+    padding: 5vh 0;
+}
+
+.content_block:first-child {
+    margin-top: 10vh !important;
+}
+
+.button {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #9b9b9b;
+    border-radius: 0.6em;
+    color: #9b9b9b;
+    cursor: pointer;
+    align-self: center;
+    line-height: 1;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 1vh 2vw;
+    font-size: 14px;
+    margin-top: 5vh;
+}
+
+.button:hover {
+    background-color: #9b9b9b;
+    color: #fff200;
+    transition: 300ms;
+}
+
+.prime_block {
+    position: relative;
+}
+
+/* Fonts */
+@font-face {
+    font-family: "Kurale";
+    src: url("../fonts/Kurale-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Didact Gothic";
+    src: url("../fonts/DidactGothic-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+
+
+
+
+
+div:has(.left_hidden) {
+    overflow: hidden;
+}
+
+div:has(.right_hidden) {
+    overflow: hidden;
+}
+
+
+.left_hidden {
+    position: relative;
+    left: -100vw;
+}
+
+.right_hidden {
+    position: relative;
+    right: -100vw;
+}

@@ -1,0 +1,81 @@
+footer {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    color: #fff;
+    z-index: 10000;
+    padding: 3vh 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer .logo {
+    vertical-align: middle;
+    color: #fff200;
+    width: 15%;
+    font-size: 32px;
+}
+
+footer .logo-flex {
+    vertical-align: middle;
+    align-items: center;
+    display: flex;
+    color: #fff200;
+    font-size: 32px;
+}
+
+footer .logo-flex span {
+    margin-left: 5%;
+}
+
+footer .footer_main_menu {
+    font-size: 20px;
+    width: 25%;
+}
+
+footer .footer_menu_wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+footer .footer_main_menu .footer_menu_wrapper span {
+    margin: 10px 0;
+    width: 30%;
+    display: inline-block;
+}
+
+footer .contact_panel {
+    font-size: 20px;
+}
+
+footer .contact_panel_wrapper {
+    float: right;
+}
+
+footer .contact_panel div {
+    display: inline-block;
+}
+
+footer .action_get_call {
+    margin-bottom: 10px;
+}
+
+footer .contact_panel .socials {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+footer .contact_panel img {
+    width: 32px;
+}
+
+footer .legal_information {
+    font-size: 16px;
+}
