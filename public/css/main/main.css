@@ -34,14 +34,11 @@
 
 /* О НАС */
 
-.about_us {
-    font-family: "Didact Gothic", sans-serif !important;
-}
-
 .about_us .first_line {
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 3vh;
 }
 
 .about_us .about_us_main {
@@ -195,6 +192,7 @@
     overflow: hidden;
     width: 80%;
     white-space: nowrap;
+    position: relative;
 }
 
 .specials_wrapper .slider .main_wrapper span {
@@ -203,9 +201,14 @@
     transition: transform ease 1.2s;
     text-align: center;
     vertical-align: middle;
-    font-size: 18px;
+    font-size: 20px;
     color: #fff;
     cursor: default;
+}
+
+.specials_wrapper .slider .slider_item {
+    padding: 5vh 0;
+    border-radius: 20px;
 }
 
 .customizeTooltip {
@@ -356,6 +359,6 @@
 }
 
 .yandex_map {
-    height: 40vh;
+    height: 288px;
     margin: 0;
 }

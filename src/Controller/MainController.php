@@ -21,11 +21,11 @@ class MainController extends AbstractController
             'groups' => $entityManager->getRepository(Group::class)->findAll(),
             'specials' => $entityManager->getRepository(Special::class)->findAll(),
             'reviews' => $entityManager->getRepository(Review::class)->findAll(),
-            'worksPhotosByGroups' => $this->getPhonotsByGroups($entityManager),
+            'worksPhotosByGroups' => $this->getPhotosByGroups($entityManager),
         ]);
     }
 
-    protected function getPhonotsByGroups(EntityManagerInterface $entityManager)
+    protected function getPhotosByGroups(EntityManagerInterface $entityManager)
     {
         $workPhotosByCategory = [];
         $groups = $entityManager->getRepository(Group::class)->findAll();
