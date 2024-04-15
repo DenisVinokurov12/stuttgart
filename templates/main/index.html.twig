@@ -22,7 +22,7 @@
     </div>
     <script src=""></script>
 
-    <div class="about_us content_block prime_block" id="about_us">
+    <div class="about_us content_block prime_block desktop_block" id="about_us">
         <div class="container">
             <div class="first_line left_hidden">
                 <span class="about_us_main">
@@ -45,19 +45,37 @@
     </div>
     <script type="text/javascript" src="{{ asset('js/main/aboutUs.js') }}"></script>
 
-    <div class="services content_block prime_block" id="services">
+
+    <div class="about_us_mobile content_block prime_block" id="about_us_mobile">
+        <div class="container">
+            <span class="about_us_main left_hidden">
+                <span class="main_color">Stuttgart</span> - уникальный детейлинг-салон Екатеринбурга, со своей собственной философией и подходом к гостям. Машина нашего клиента - наша машина и такой подход сохраняется вне зависимости от оказываемой услуги и обслуживаемого автомобиля.
+            </span>
+            <div class="images right_hidden">
+                <img  data-fancybox="aboutUs" src="{{ asset('images/main/aboutUs/inside2.webp') }}" alt="">
+                <img  data-fancybox="aboutUs" src="{{ asset('images/main/aboutUs/place.webp') }}" alt="">
+                <img  data-fancybox="aboutUs" src="{{ asset('images/main/aboutUs/inside.webp') }}" alt="">
+                <img  data-fancybox="aboutUs" src="{{ asset('images/main/aboutUs/place2.webp') }}" alt="">
+            </div>
+            <span class="about_us_secondary left_hidden">
+                Наш авто-спа центр рад принять вас и помочь обновить или освежить внешний вид вашего железного коня. Для этого у нас доступны 4 направления:<br>
+                {% for group in groups %}
+                    <span class="direction main_color"><a onclick="javascript:void(0);" data-groupname="{{ group.getName() }}">— {{ group.getLabel() }}</a></span><br>
+                {% endfor %}
+            </span>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/main/aboutUs.js') }}"></script>
+
+    <div class="services content_block prime_block desktop_block" id="services">
         <div class="container">
             <div class="main_services_block">
                 <div class="groups left_hidden">
                     {% for group in groups %}
                         <div class="group" data-name="{{ group.getName() }}">
                             <a href="">
-                                <div class="overlay">
-                                    <div class="overlay">
-                                        <div class="group_name" data-groupname="{{ group.getName() }}">
-                                            {{ group.getLabel() }}
-                                        </div>
-                                    </div>
+                                <div class="overlay" data-groupname="{{ group.getName() }}">
+                                    {{ group.getLabel() }}
                                 </div>
                                 <img src="{{ asset('images/main/services/'~ group.getName() ~'.jpg') }}" alt="">
                             </a>
@@ -89,14 +107,51 @@
     </div>
     <script type="text/javascript" src="{{ asset('js/main/services.js') }}"></script>
 
+    <div class="services_mobile content_block prime_block" id="services_mobile">
+        <div class="container">
+            <div class="groups left_hidden">
+                {% for group in groups %}
+                    {% set categories = group.getCategories().getValues() %}
+                    <figure class="group" data-name="{{ group.getName() }}">
+                        <div class="group_wrapper">
+                            <div class="face front">
+                                <div class="overlay" data-groupname="{{ group.getName() }}">
+                                    {{ group.getLabel() }}
+                                </div>
+                                <img src="{{ asset('images/main/services/'~ group.getName() ~'.jpg') }}" alt="">
+                            </div>
+                            <div class="face back">
+                                <div class="categories_container" data-groupname="{{ group.getName() }}">
+                                    <div class="group_title">{{ group.getLabel() }}</div>
+                                    <div class="categories_box">
+                                        <ul>
+                                            {% for category in categories %}
+                                                <a href="{{ path('category_page', {'id': category.getId()}) }}">
+                                                    <li class="category">
+                                                        <span class="category_title">{{ category.getLabel() }}</span>
+                                                        <span class="category_min_price">от {{ category.getMinPrice() }}р.</span>
+                                                    </li>
+                                                </a>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
     <div class="specials content_block main_block">
         <div class="specials_wrapper">
             <div class="container">
-                <div class="slider">
+                <div class="slider" data-currentSlide="0">
                     <span class="prev"><img src="{{ asset('images/main/specials/leftArrow.svg') }}" alt=""></span>
                     <div class="main_wrapper">
                         {% for key, special in specials %}
-                            <span class="slider_item" title="{{ special.getText() }}" style="background: linear-gradient(
+                            <span class="slider_item" data-key="{{ key }}" title="{{ special.getText() }}" style="background: linear-gradient(
                                     rgba(0, 0, 0, 0.7),
                                     rgba(0, 0, 0, 0.7)
                                     ), url({{ asset('images/main/services/detailing.jpg') }});">
@@ -111,14 +166,7 @@
     </div>
     <script type="text/javascript" src="{{ asset('js/main/specials.js') }}"></script>
 
-    <div class="advantages content_block main_block" id="advantages">
-        <div class="container">
-            
-
-        </div>
-    </div>
-
-    <div class="reviews content_block main_block" id="reviews" data-currentreview="0">
+    <div class="reviews content_block main_block desktop_block" id="reviews" data-currentreview="0">
         <div class="container">
             <div class="slider">
                 <span class="prev"><img src="{{ asset('images/main/specials/leftArrow.svg') }}" alt=""></span>
@@ -150,8 +198,38 @@
     </div>
     <script type="text/javascript" src="{{ asset('js/main/reviews.js') }}"></script>
 
+    <div class="reviews_mobile content_block main_block" id="reviews_mobile" data-currentreview="0">
+        <div class="container">
+            <div class="slider">
+                <div class="main_wrapper">
+                    {% for review in reviews %}
+                        <div class="review_box">
+                            <div class="client_info">
+                                <span class="client_name">{{ review.getClientName() }}</span>,
+                                <span class="client_visit_day">{{ review.getVisitDate() }}</span>
+                            </div>
+                            <div class="car_info">
+                                <span class="car_name">{{ review.getCar() }}</span>,
+                                <span class="car_service">{{ review.getService() }}</span>
+                            </div>
+                            <div class="review_body">{{ review.getText() }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="slider_counter">
+                <div class="slider_counter_wrapper">
+                    {% for key, review in reviews %}
+                        <span class="review_counter" data-currentreview="{{ key }}"></span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{{ asset('js/main/reviews_mobile.js') }}"></script>
+
     {% if worksPhotosByGroups is not empty %}
-        <div class="works content_block main_block" id="works">
+        <div class="works content_block main_block desktop_block" id="works">
             <div class="container">
                 {% for key, groupData in worksPhotosByGroups %}
                     <div class="group_wrapper {% if key != 'detailing' %}hidden{% endif %}" >
@@ -159,9 +237,25 @@
                             <div class="category_wrapper">
                                 <div class="category_title">{{ groupData.group.getLabel() }}. {{ categoryData.category.getLabel() }}</div>
                                 <div class="gallery">
-                                    {% for photo in categoryData.photos %}
-                                        <img src="{{ asset('images/main/works/' ~ photo.getPath()) }}" alt="" data-fancybox="{{ categoryData.category.getName() }}">
-                                    {% endfor %}
+                                    <div class="images">
+                                        {% if categoryData.works.images is not empty %}
+                                            {% for photo in categoryData.works.images %}
+                                                <img src="{{ asset(photo.getPath()) }}" alt="" data-fancybox="{{ categoryData.category.getName() }}">
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+
+                                    <br>
+
+                                    <div class="videos">
+                                        {% if categoryData.works.videos is not empty %}
+                                            {% for video in categoryData.works.videos %}
+                                                <video autoplay muted loop id="preview_video">
+                                                    <source src="{{ asset(video.getPath()) }}" type="video/mp4">
+                                                </video>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         {% endfor %}
@@ -171,8 +265,6 @@
             </div>
         </div>
         <script type="text/javascript" src="{{ asset('js/main/works.js') }}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"/>
     {% endif %}
 
     <div class="form content_block main_block" id="form">
@@ -216,7 +308,7 @@
         </div>
     </div>
 
-    <div class="yandex_map content_block" id="map">
+    <div class="yandex_map content_block desktop_block" id="map">
         <div id="map">
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A4fbf5bca8c1473957145c5dff51f27d78d2c537147dcad2d6c9b1e34ab2cc282&amp;source=constructor" width="100%" height="288px" frameborder="0"></iframe>
         </div>

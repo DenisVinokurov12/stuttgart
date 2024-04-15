@@ -1,71 +1,4 @@
-.preview {
-    height: 100vh;
-    overflow: hidden;
-    position: relative;
-}
-
-.preview img {
-    width: 100%;
-    height: 100%;
-}
-
-.overlay_wrapper {
-    position: absolute;
-    z-index: -100;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-}
-
-.overlay {
-    background-color: rgba(0, 0, 0, 0.6);
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    position: absolute;
-}
-
-.preview .preview_data {
-    z-index: 100;
-    margin-top: 10vh;
-    height: 90vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.preview .category_info {
-    font-size: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.preview .category_info > div {
-    padding: 5vh 3vw;
-    border-radius: 0  85px 85px 0;
-    background-color: rgba(0, 0, 0, 0.85);
-    margin: 5vh 0;
-}
-
-.preview .category_description_wrapper {
-    max-width: 50%;
-    font-size: 24px;
-    flex-grow: 1;
-}
-
-.preview .category_description_wrapper .category_description {
-    padding: 10vh 5vw;
-    width: 75%;
-    font-size: 32px;
-    text-align: center;
-    background-color: rgba(0, 0, 0, 0.85);
-    border-radius: 30px;
-    box-shadow: 0 0 50px 3px rgba(0, 0, 0, 0.85);
-}
-
+@import "preview.css";
 
 .category_services .service {
     width: 60%;
@@ -83,6 +16,7 @@
 
 .category_services .service_wrapper .service_info {
     max-width: 50%;
+    margin-right: 15%;
 }
 
 .category_services .service_wrapper .service_info .service_title {
@@ -97,6 +31,7 @@
 
 .category_services .service_wrapper .subservice_info {
     position: relative;
+    font-size: 22px;
 }
 
 .category_services .service_wrapper .subservice_info:after {
@@ -112,4 +47,91 @@
 
 .category_services .service .sign_up {
     text-align: right;
+}
+
+@media (max-width: 1510px) {
+    .category_services .service_wrapper .service_info .service_title {
+        font-size: 34px;
+    }
+
+    .category_services .service_wrapper .service_info .service_description {
+        font-size: 20px;
+    }
+
+    .category_services .service_wrapper .subservice_info {
+        font-size: 18px;
+    }
+
+    .category_services .service_wrapper .subservice_info:after {
+        width: 25px;
+        left: -35px;
+        height: 3px;
+    }
+}
+
+@media (max-width: 1106px) {
+    .category_services .service_wrapper .service_info .service_title {
+        font-size: 26px;
+    }
+
+    .category_services .service_wrapper .service_info .service_description {
+        font-size: 16px;
+    }
+
+    .category_services .service_wrapper .subservice_info {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 852px) {
+    .category_services .service_wrapper .service_info .service_title {
+        font-size: 22px;
+        margin-bottom: 1vh;
+    }
+
+    .category_services .service_wrapper .service_info .service_description {
+        font-size: 16px;
+    }
+
+    .category_services .service_wrapper .subservice_info {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    .category_services .service {
+        margin: 15vh auto;
+    }
+    .category_services .service_wrapper .service_info {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .category_services .service_wrapper .service_info .service_title {
+        font-size: 18px;
+    }
+
+    .category_services .service_wrapper {
+        flex-direction: column;
+    }
+
+    .category_services .service_wrapper .subservices_info {
+        margin-top: 10%;
+    }
+
+    .category_services .service_wrapper .subservice_info {
+        margin-left: 20px;
+        margin-top: 1%;
+    }
+
+    .category_services .service_wrapper .subservice_info:after {
+        width: 14px;
+        left: -20px;
+        height: 2px;
+        top: calc(50% - 1px);
+    }
+}
+
+@media (max-width: 522px) {
+    font-size: 14px;
 }

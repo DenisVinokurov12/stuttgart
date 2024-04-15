@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Group;
 use App\Entity\Review;
 use App\Entity\Special;
@@ -42,11 +43,23 @@ class MainController extends AbstractController
                     continue;
                 }
 
+                $works = [
+                    'images' => [],
+                    'videos' => [],
+                ];
+
+                /** @var WorkPhoto $photo */
+                foreach ($photos as $photo) {
+                    if (!file_exists($photo->getPath())) {
+                        continue;
+                    }
+
+                    $works[$photo->getType() === 'img' ? 'images' : 'videos'][] = $photo;
+                }
+
                 $workPhotosByCategory[$group->getName()]['categories'][$category->getName()] = [
                     'category' => $category,
-                    'photos' => array_filter($category->getWorkPhotos()->getValues(), function (WorkPhoto $photo) {
-                        return file_exists('images/main/works/' . $photo->getPath());
-                    }),
+                    'works' => $works,
                 ];
             }
 

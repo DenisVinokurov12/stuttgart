@@ -30,7 +30,9 @@ header .logo-flex {
     font-size: 32px;
 }
 
-header .logo-flex span {
+header .logo-flex h1 {
+    font-weight: normal;
+    font-size: 32px;
     margin-left: 5%;
     font-family: Kurale, serif;
 }
@@ -89,5 +91,101 @@ header .contact_panel .socials {
 }
 
 header .contact_panel img {
-    width: 32px;
+    width: 24px;
+}
+
+@media (max-width: 1216px) {
+    header .logo {
+        width: 20% !important;
+    }
+
+    header .logo .logo-flex h1 {
+        font-size: 22px;
+        width: 35%;
+    }
+
+    header .logo img {
+        width: 20%;
+    }
+
+    header .main_menu li {
+        margin: 0 10px;
+        font-size: 12px;
+    }
+
+    header .contact_panel {
+        width: 20%;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    header .logo {
+        width: 35% !important;
+    }
+
+    header .logo img {
+        width: 20%;
+    }
+
+    header .main_menu {
+        background-image: url("/images/menu.svg");
+        width: 24px;
+        height: 24px;
+    }
+
+    header .main_menu > ul {
+        display: none;
+        position: absolute;
+        width: 40%;
+        left: 30%;
+        top: 100%;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.85);
+    }
+
+    header .main_menu ul li {
+        margin: 0;
+        padding: 10% 0;
+        text-align: center;
+        font-size: 24px;
+    }
+
+    header .contact_panel {
+        width: 35%;
+    }
+
+    header .contact_panel .action_get_call {
+        margin-bottom: 5px;
+    }
+
+    header .contact_panel .socials a {
+        width: 24px;
+        height: 24px;
+    }
+
+    header .contact_panel .socials a img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 418px) {
+    header .contact_panel {
+        font-size: 14px;
+    }
+
+    header .main_menu ul li {
+        font-size: 16px;
+    }
+
+    header .contact_panel .socials a {
+        width: 18px;
+        height: 18px;
+    }
+
+    header .contact_panel .socials a img {
+        width: 18px;
+        height: 18px;
+    }
 }

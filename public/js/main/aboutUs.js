@@ -1,5 +1,5 @@
 $(function() {
-    $('.about_us .direction a').on('click', function() {
+    $('.about_us .direction a, .about_us_mobile .direction a').on('click', function() {
         $('html, body').animate({
             scrollTop: $(`#services`).offset().top - window.innerHeight * 0.1
         }, {

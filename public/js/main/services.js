@@ -1,5 +1,5 @@
 $(function() {
-    var block = $('.services');
+    var block = $('.services, .services_mobile');
 
     block.find('.group').on('click', function(e) {
         e.preventDefault();
