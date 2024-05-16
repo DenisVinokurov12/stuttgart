@@ -1,0 +1,104 @@
+.reviews_mobile {
+    display: none;
+}
+
+.reviews .slider, .reviews_mobile .slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reviews .slider .main_wrapper, .reviews_mobile .slider .main_wrapper {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    margin: 5vh 0;
+}
+
+.reviews .slider .next, .reviews .slider .prev, .reviews_mobile .slider .next, .reviews_mobile .slider .prev {
+    padding: 5px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+}
+
+.reviews .slider .next:hover, .reviews .slider .prev:hover {
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 50%;
+    box-shadow: 0 0 5px 5px rgb(128, 128, 128, 0.5);
+}
+
+.reviews .slider .review_box, .reviews_mobile .slider .review_box {
+    padding: 20px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    box-shadow: 0 0 25px 5px rgba(0, 0, 0, 0.75);
+    font-size: 16px;
+}
+
+.reviews .slider .review_box {
+    max-width: 50%;
+}
+
+.reviews .slider .review_box .client_info, .reviews .slider .review_box .car_info, .reviews_mobile .slider .review_box .client_info, .reviews_mobile .slider .review_box .car_info {
+    color: #fff200;
+}
+
+.reviews .slider .review_box .car_info, .reviews_mobile .slider .review_box .car_info {
+    font-weight: bold;
+}
+
+.reviews .slider .review_box .review_body, .reviews_mobile .slider .review_box .review_body {
+    padding: 30px 100px;
+}
+
+.reviews .slider_counter, .reviews_mobile .slider_counter {
+    height: 10vh;
+}
+
+.reviews .slider_counter .slider_counter_wrapper, .reviews_mobile .slider_counter .slider_counter_wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.reviews .slider_counter .review_counter, .reviews_mobile .slider_counter .review_counter {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 6px;
+    background-color: rgba(128, 128, 128, 1);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.reviews .slider_counter .review_counter.active, .reviews_mobile .slider_counter .review_counter.active {
+    background-color: rgba(255, 242, 0);
+    box-shadow: 0 0 3px 1px rgba(255, 242, 0);
+}
+
+@media (max-width: 1182px) {
+    .reviews .slider .review_box .review_body {
+        padding: 30px 45px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .reviews .slider .review_box .review_body {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .reviews {
+        display: none;
+    }
+
+    .reviews_mobile {
+        display: block;
+    }
+
+    .reviews_mobile .slider .review_box .review_body {
+        padding: 30px;
+    }
+}

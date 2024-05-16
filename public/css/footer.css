@@ -31,6 +31,7 @@ footer .logo-flex {
 
 footer .logo-flex span {
     margin-left: 5%;
+    font-family: Kurale, serif;
 }
 
 footer .footer_main_menu {
@@ -78,4 +79,85 @@ footer .contact_panel img {
 
 footer .legal_information {
     font-size: 16px;
+}
+
+@media (max-width: 1252px) {
+    footer .footer_main_menu {
+        font-size: 15px;
+        width: 20%;
+    }
+
+    footer .legal_information {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 1216px) {
+    footer .logo {
+        width: 20%
+    }
+
+    footer .logo .logo-flex span {
+        font-size: 22px;
+        width: 35%;
+    }
+
+    footer .logo img {
+        width: 20%;
+    }
+}
+
+@media (max-width: 968px) {
+    footer .logo {
+        width: 10%;
+    }
+
+    footer .logo img {
+        width: 40%;
+    }
+
+    footer .legal_information {
+        font-size: 10px;
+    }
+
+    footer .contact_panel {
+        font-size: 16px;
+    }
+
+    footer .contact_panel img {
+        width: 24px;
+    }
+}
+
+@media (max-width: 828px) {
+    footer .legal_information {
+        width: 22%;
+    }
+
+    footer .footer_main_menu {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+    footer .logo {
+        width: 35%;
+    }
+
+    footer .logo img {
+        width: 20%;
+    }
+
+    footer .footer_main_menu {
+        display: none;
+    }
+
+    footer .contact_panel {
+        font-size: 16px;
+    }
+
+    footer .legal_information {
+        width: 35%;
+        text-align: right;
+    }
 }

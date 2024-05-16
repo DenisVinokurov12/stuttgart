@@ -1,4 +1,5 @@
 $(function () {
+    var matchMedia = window.matchMedia('(max-width: 768px)');
     let mainPageNavigationButton = $('header .main_page_navigation_button');
 
     mainPageNavigationButton.on('click', function () {
@@ -27,7 +28,7 @@ $(function () {
 
         $('nav a').removeClass('active');
 
-        $('.content_block').each(function(index, block) {
+        $('.desktop_block').each(function(index, block) {
             if ($(block).position().top <= windscroll + window.innerHeight * 0.2) {
                 $('nav a').removeClass('active');
                 $('nav a[data-blocklabel=' + $(block).attr('id') + ']').addClass('active');
@@ -35,4 +36,22 @@ $(function () {
         });
 
     }).scroll();
+
+    if (matchMedia.matches) {
+        var navMenu = $('header .main_menu');
+
+        navMenu.on('click', function() {
+            navMenu.find('ul').toggle();
+        });
+
+        $(document).on('touchend', function(e) {
+
+            if (navMenu.is(e.target) || navMenu.has(e.target).length !== 0)
+            {
+                return;
+            }
+
+            navMenu.find('ul').hide();
+        })
+    }
 });

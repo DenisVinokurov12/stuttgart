@@ -24,4 +24,6 @@ $(function() {
             }
         });
     }).scroll();
+
+    Fancybox.bind("[data-fancybox]");
 });

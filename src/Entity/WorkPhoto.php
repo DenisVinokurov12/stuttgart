@@ -20,6 +20,9 @@ class WorkPhoto
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'workphotos')]
     private Category $category;
 
+    #[ORM\Column(length: 255)]
+    private ?string $type = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -43,6 +46,18 @@ class WorkPhoto
     public function setCategory(?Category $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
+    }
+
+    public function setType(string $type): static
+    {
+        $this->type = $type;
 
         return $this;
     }
