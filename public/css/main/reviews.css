@@ -9,7 +9,7 @@
 }
 
 .reviews .slider .main_wrapper, .reviews_mobile .slider .main_wrapper {
-    width: 60%;
+    width: 80%;
     display: flex;
     align-items: center;
     margin: 5vh 0;
@@ -100,5 +100,9 @@
 
     .reviews_mobile .slider .review_box .review_body {
         padding: 30px;
+    }
+
+    .reviews .slider .review_box, .reviews_mobile .slider .review_box {
+        font-size: 12px;
     }
 }

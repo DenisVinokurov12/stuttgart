@@ -19,7 +19,7 @@
     position: relative;
 }
 
-.specials_wrapper .slider .main_wrapper span {
+.specials_wrapper .slider .main_wrapper span.slider_item {
     display: inline-block;
     width: 24%;
     transition: transform ease 1.2s;
@@ -33,6 +33,7 @@
 .specials_wrapper .slider .slider_item {
     padding: 5vh 0;
     border-radius: 20px;
+    transition-duration: 0s;
 }
 
 .customizeTooltip {
@@ -61,20 +62,44 @@
 }
 
 @media (max-width: 1728px) {
-    .specials_wrapper .slider .main_wrapper span {
+    .specials_wrapper .slider .main_wrapper span.slider_item {
         font-size: 14px;
     }
 }
 
 @media (max-width: 1216px) {
-    .specials_wrapper .slider .main_wrapper span  {
+    .specials_wrapper .slider .main_wrapper span.slider_item  {
         width: 32%;
     }
 }
 
 @media (max-width: 768px) {
-    .specials_wrapper .slider .main_wrapper span  {
-        width: 49%;
+    .specials_wrapper .slider .main_wrapper span.slider_item  {
+        width: 47%;
+        padding: 0;
+        height: 10vh;
+        transition: transform 0s;
+    }
+
+    .specials_wrapper .slider .main_wrapper span.slider_item span.slider_item_flex_wrapper  {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .specials_wrapper .slider .main_wrapper span.slider_item span.slider_item_flex_wrapper p  {
+        white-space: break-spaces;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .specials_wrapper span.prev, .specials_wrapper span.next {
+        display: none;
+    }
+
+    .specials_wrapper .slider .main_wrapper {
+        width: 100%;
     }
 }
 

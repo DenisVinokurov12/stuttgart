@@ -37,6 +37,10 @@
 }
 
 @media (max-width: 798px) {
+    .preview video {
+        height: 100vh;
+        object-fit: cover;
+    }
     .preview .motto {
         font-size: 60px;
     }
@@ -44,6 +48,6 @@
 
 @media (max-width: 596px) {
     .preview .motto {
-        font-size: 40px;
+        font-size: 36px;
     }
 }

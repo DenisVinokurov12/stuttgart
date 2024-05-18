@@ -48,3 +48,17 @@
     color: rgba(128, 128, 128);
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+
+    .works .gallery img  {
+        max-width: 100%;
+        max-height: 35vh;
+        margin: 3vh 3vh 3vh 0;
+    }
+
+    .works .gallery video  {
+        width: 100%;
+        margin: 3vh 3vh 3vh 0;
+    }
+}

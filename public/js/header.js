@@ -38,7 +38,7 @@ $(function () {
     }).scroll();
 
     if (matchMedia.matches) {
-        var navMenu = $('header .main_menu');
+        var navMenu = $('header .main_menu_mobile');
 
         navMenu.on('click', function() {
             navMenu.find('ul').toggle();

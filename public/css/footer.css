@@ -148,6 +148,10 @@ footer .legal_information {
         width: 20%;
     }
 
+    footer .contact_panel {
+        display: none;
+    }
+
     footer .footer_main_menu {
         display: none;
     }
@@ -157,7 +161,7 @@ footer .legal_information {
     }
 
     footer .legal_information {
-        width: 35%;
+        width: 60%;
         text-align: right;
     }
 }

@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -99,11 +100,6 @@ a:hover {
     font-weight: normal;
 }
 
-
-
-
-
-
 div:has(.left_hidden) {
     overflow: hidden;
 }
@@ -121,4 +117,11 @@ div:has(.right_hidden) {
 .right_hidden {
     position: relative;
     right: -100vw;
+}
+
+@media (max-width: 768px) {
+    .content_block {
+        margin: 5vh 0;
+        padding: 3vh 0;
+    }
 }

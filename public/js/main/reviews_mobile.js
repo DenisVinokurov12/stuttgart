@@ -22,12 +22,26 @@ $(function() {
 
     updateReviews(0);
 
-    reviews.find('.prev').on('click', function() {
-        updateReviews(reviews.data('currentreview') - 1);
+    var x1;
+
+    reviews.find('.review_box').on('touchstart', function (e) {
+        x1 = e.originalEvent.touches[0].clientX;
     });
 
-    reviews.find('.next').on('click', function() {
-        updateReviews(reviews.data('currentreview') + 1);
+    reviews.find('.review_box').on('touchmove', function (e) {
+        if (!x1) {
+            return false;
+        }
+
+        var diff = Math.abs(Number(x1 - e.originalEvent.touches[0].clientX));
+
+        if (diff < $(this).width()/2) {
+            return false;
+        }
+
+        var newReviewPage =  reviews.data('currentreview') + (Number(x1 - e.originalEvent.touches[0].clientX) > 0 ? +1 : -1)
+
+        updateReviews(newReviewPage);
     });
 
     reviews.find('.slider_counter .review_counter').on('click', function() {

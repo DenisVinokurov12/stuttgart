@@ -37,17 +37,21 @@ header .logo-flex h1 {
     font-family: Kurale, serif;
 }
 
-header .main_menu {
+header .main_menu_mobile {
+    display: none;
+}
+
+header .main_menu, header .main_menu_mobile {
     font-size: 16px;
 }
 
-header .main_menu ul {
+header .main_menu ul, header .main_menu_mobile ul {
     list-style-type: none;
     display: flex;
     text-shadow: 0 4px 15px #000000;
 }
 
-header .main_menu li {
+header .main_menu li, header .main_menu_mobile li {
     margin: 0 25px;
     cursor: pointer;
 }
@@ -108,7 +112,7 @@ header .contact_panel img {
         width: 20%;
     }
 
-    header .main_menu li {
+    header .main_menu li, header .main_menu_mobile li {
         margin: 0 10px;
         font-size: 12px;
     }
@@ -120,6 +124,14 @@ header .contact_panel img {
 }
 
 @media (max-width: 768px) {
+    header .main_menu {
+        display: none;
+    }
+
+    header .main_menu_mobile {
+        display: block;
+    }
+
     header .logo {
         width: 35% !important;
     }
@@ -128,13 +140,13 @@ header .contact_panel img {
         width: 20%;
     }
 
-    header .main_menu {
+    header .main_menu_mobile {
         background-image: url("/images/menu.svg");
         width: 24px;
         height: 24px;
     }
 
-    header .main_menu > ul {
+    header .main_menu_mobile > ul {
         display: none;
         position: absolute;
         width: 40%;
@@ -144,7 +156,7 @@ header .contact_panel img {
         background-color: rgba(0, 0, 0, 0.85);
     }
 
-    header .main_menu ul li {
+    header .main_menu_mobile ul li {
         margin: 0;
         padding: 10% 0;
         text-align: center;
@@ -172,10 +184,10 @@ header .contact_panel img {
 
 @media (max-width: 418px) {
     header .contact_panel {
-        font-size: 14px;
+        font-size: 12px;
     }
 
-    header .main_menu ul li {
+    header .main_menu_mobile ul li {
         font-size: 16px;
     }
 
