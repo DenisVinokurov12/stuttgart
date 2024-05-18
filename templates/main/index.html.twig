@@ -9,7 +9,7 @@
 
 {% block body %}
     <div class="preview prime_block">
-        <video autoplay muted loop id="preview_video">
+        <video autoplay playsinline muted loop id="preview_video">
             <source src="{{ asset('video/preview' ~ random(1, 2) ~ '.MOV') }}" type="video/mp4">
         </video>
         <div class="overlay"></div>
@@ -73,7 +73,7 @@
                 <div class="groups left_hidden">
                     {% for group in groups %}
                         <div class="group" data-name="{{ group.getName() }}"  style="background: url({{ asset('images/main/services/'~ group.getName() ~'.jpg') }}) no-repeat center center / cover;">
-                            <a href="">
+                            <a onclick="javascript:void(0);">
                                 <div class="overlay" data-groupname="{{ group.getName() }}">
                                     {{ group.getLabel() }}
                                 </div>
@@ -115,6 +115,7 @@
                         <div class="group_wrapper">
                             <div class="face front" style="background: url({{ asset('images/main/services/'~ group.getName() ~'.jpg') }}) no-repeat center center / cover;">
                                 <div class="overlay" data-groupname="{{ group.getName() }}" >
+
                                     {{ group.getLabel() }}
                                 </div>
                             </div>
@@ -248,7 +249,7 @@
                                     <div class="videos">
                                         {% if categoryData.works.videos is not empty %}
                                             {% for video in categoryData.works.videos %}
-                                                <video autoplay muted loop id="preview_video">
+                                                <video autoplay playsinline muted loop id="preview_video">
                                                     <source src="{{ asset(video.getPath()) }}" type="video/mp4">
                                                 </video>
                                             {% endfor %}

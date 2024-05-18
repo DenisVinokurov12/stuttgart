@@ -102,6 +102,11 @@
     .category_services .service {
         margin: 15vh auto;
     }
+
+    .category_services .service_wrapper .service_info .service_description {
+        font-size: 12px;
+    }
+
     .category_services .service_wrapper .service_info {
         max-width: 100%;
         margin-right: 0;

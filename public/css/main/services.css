@@ -242,7 +242,7 @@
     }
 
     .services .overlay, .services_mobile .overlay {
-        width: 100%;
+        width: 101%;
         height: 100%;
         position: absolute;
         display: flex;
