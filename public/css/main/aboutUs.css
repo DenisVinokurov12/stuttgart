@@ -13,6 +13,10 @@
     width: 45%;
 }
 
+.about_us .about_us_main .main_color {
+    font-family: 'RussoOne', sans-serif;
+}
+
 .about_us .second_line {
     display: flex;
     justify-content: space-between;

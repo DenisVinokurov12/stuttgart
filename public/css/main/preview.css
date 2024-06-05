@@ -28,6 +28,7 @@
     color: #fff200;
     font-size: 100px;
     z-index: 5;
+    font-family: 'RussoOne', sans-serif;
 }
 
 @media (max-width: 996px) {

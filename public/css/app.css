@@ -100,6 +100,13 @@ a:hover {
     font-weight: normal;
 }
 
+@font-face {
+    font-family: "RussoOne";
+    src: url("../fonts/RussoOne-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
 div:has(.left_hidden) {
     overflow: hidden;
 }

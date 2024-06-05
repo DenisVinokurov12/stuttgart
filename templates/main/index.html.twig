@@ -10,13 +10,12 @@
 {% block body %}
     <div class="preview prime_block">
         <video autoplay playsinline muted loop id="preview_video">
-            <source src="{{ asset('video/preview' ~ random(1, 2) ~ '.MOV') }}" type="video/mp4">
+            <source src="{{ asset('video/preview' ~ random(1, 3) ~ '.MOV') }}" type="video/mp4">
         </video>
         <div class="overlay"></div>
         <div class="container" style="position: relative; height: 90vh; overflow: visible">
             <div class="motto left_hidden">
-                Детейлинг-студия<br>
-                нового уровня
+                Детейлинг-центр
             </div>
         </div>
     </div>
@@ -268,7 +267,7 @@
 
     <div class="form content_block main_block" id="form">
         <div class="container">
-            <form class="form_wrapper" name="call_order" action="#" method="POST">
+            <form class="form_wrapper" name="call_order"  method="POST">
                 <div class="form_title">Закажите звонок</div>
                 <div class="form_controls">
                     <div class="form_group">
@@ -280,7 +279,7 @@
                         <label for="phone" class="form_label">Телефон</label>
                     </div>
                     <div class="form_group form_select">
-                        <input type="text" class="form_field" placeholder="Категория" name="category" id="category" autocomplete="off">
+                        <input type="text" class="form_field" placeholder="Категория" name="category" id="category" autocomplete="off" readonly="readonly">
                         <label for="category" class="form_label">Категория</label>
                         <div class="dropdown">
                             <ul>

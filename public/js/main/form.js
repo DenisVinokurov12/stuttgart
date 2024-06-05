@@ -12,4 +12,25 @@ $(function() {
     categorySelect.find('.dropdown li.option').on('mousedown', function() {
         categoryInput.val($(this).data('value')).removeClass('focused');
     });
+
+    form.on('submit', function(e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: "/send/application",
+            type: "POST",
+            data: {
+                form: form.serialize(),
+            },
+            success: function(result) {
+                result = JSON.parse(result);
+
+                Swal.fire({
+                    icon: result.result ? 'success' : 'error',
+                    text: result.message,
+                    showConfirmButton: true,
+                });
+            }
+        });
+    });
 });
