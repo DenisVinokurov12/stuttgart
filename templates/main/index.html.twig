@@ -278,7 +278,7 @@
                                 {% if imgKey == 0 %}
                                     <div class="overlay"></div>
                                     <a href="{{ asset(imgPath) }}" data-fancybox="{{ key }}">
-                                        <div class="work_category_preview" style="background: url('{{ asset(imgPath) }}') no-repeat center center / cover;">
+                                        <div class="work_category_preview">
                                             <div class="categoryLabel">
                                                 {{ category.label }}
                                             </div>
@@ -300,46 +300,6 @@
             </div>
         </div>
     </div>
-
-
-{#    {% if worksPhotosByGroups is not empty %}#}
-{#        <div class="works content_block main_block desktop_block" id="works">#}
-{#            <div class="container">#}
-{#                {% for key, groupData in worksPhotosByGroups %}#}
-{#                    <div class="group_wrapper {% if key != 'detailing' %}hidden{% endif %}" >#}
-{#                        {% for categoryData in groupData.categories %}#}
-{#                            <div class="category_wrapper">#}
-{#                                <div class="category_title">{{ groupData.group.getLabel() }}. {{ categoryData.category.getLabel() }}</div>#}
-{#                                <div class="gallery">#}
-{#                                    <div class="images">#}
-{#                                        {% if categoryData.works.images is not empty %}#}
-{#                                            {% for photo in categoryData.works.images %}#}
-{#                                                <img src="{{ asset(photo.getPath()) }}" alt="" data-fancybox="{{ categoryData.category.getName() }}">#}
-{#                                            {% endfor %}#}
-{#                                        {% endif %}#}
-{#                                    </div>#}
-
-{#                                    <br>#}
-
-{#                                    <div class="videos">#}
-{#                                        {% if categoryData.works.videos is not empty %}#}
-{#                                            {% for video in categoryData.works.videos %}#}
-{#                                                <video autoplay playsinline muted loop id="preview_video" data-fancybox="{{ categoryData.category.getName() }}">#}
-{#                                                    <source src="{{ asset(video.getPath()) }}" type="video/mp4">#}
-{#                                                </video>#}
-{#                                            {% endfor %}#}
-{#                                        {% endif %}#}
-{#                                    </div>#}
-{#                                </div>#}
-{#                            </div>#}
-{#                        {% endfor %}#}
-{#                    </div>#}
-{#                {% endfor %}#}
-{#                <div class="all_works"><span><a>Все работы</a></span></div>#}
-{#            </div>#}
-{#        </div>#}
-{#        <script type="text/javascript" src="{{ asset('js/main/works.js') }}"></script>#}
-{#    {% endif %}#}
 
     <div class="form content_block main_block" id="form">
         <div class="container">

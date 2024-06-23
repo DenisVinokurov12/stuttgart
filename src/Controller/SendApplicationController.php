@@ -12,7 +12,7 @@ class SendApplicationController extends AbstractController
 
     const INI = [
         "url" => 'https://gate.whapi.cloud/messages/text',
-        'jwt' => 'm62Htr4lupgSBgWW8qvtWGk7UJy5j6hj',
+        'jwt' => 'm62Htr4lupgSBgWW8qvtWGk7UJy5j6hj', // ТУТ МЕНЯЕМ JWT ТОКЕН
     ];
 
     #[Route('/send/application', name: 'app_send_application')]
@@ -27,7 +27,7 @@ class SendApplicationController extends AbstractController
             ]));
         }
 
-        $to = $formData['group_name'] == 'washing' ? 'Телефон мойки' : 'Телефон детейлинга';
+        $to = $formData['group_name'] == 'washing' ? '79995648466' : '79995648466'; //ТУТ МЕНЯЕМ ТЕЛЕФОНЫ ПОЛУЧАТЕЛЕЙ
 
         $client = new Client();
         $response = $client->request('POST', static::INI['url'], [
