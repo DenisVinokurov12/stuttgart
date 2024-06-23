@@ -35,7 +35,7 @@ $(function() {
 
         var diff = Math.abs(Number(x1 - e.originalEvent.touches[0].clientX));
 
-        if (diff < $(this).width()/2) {
+        if (diff < $(this).width() * 0.3) {
             return false;
         }
 

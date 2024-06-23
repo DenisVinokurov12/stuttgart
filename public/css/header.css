@@ -73,7 +73,7 @@ header a.active::after {
 
 header .contact_panel {
     width: 15%;
-    font-size: 20px;
+    font-size: 24px;
 }
 
 header .contact_panel_wrapper {
@@ -86,12 +86,6 @@ header .contact_panel div {
 
 header .action_get_call {
     margin-bottom: 10px;
-}
-
-header .contact_panel .socials {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 
 header .contact_panel img {
@@ -170,16 +164,6 @@ header .contact_panel img {
     header .contact_panel .action_get_call {
         margin-bottom: 5px;
     }
-
-    header .contact_panel .socials a {
-        width: 24px;
-        height: 24px;
-    }
-
-    header .contact_panel .socials a img {
-        width: 24px;
-        height: 24px;
-    }
 }
 
 @media (max-width: 418px) {
@@ -189,15 +173,5 @@ header .contact_panel img {
 
     header .main_menu_mobile ul li {
         font-size: 16px;
-    }
-
-    header .contact_panel .socials a {
-        width: 18px;
-        height: 18px;
-    }
-
-    header .contact_panel .socials a img {
-        width: 18px;
-        height: 18px;
     }
 }

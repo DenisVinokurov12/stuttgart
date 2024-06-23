@@ -46,8 +46,8 @@ a:hover {
 }
 
 .content_block {
-    margin: 20vh 0;
-    padding: 5vh 0;
+    margin: 10vh 0;
+    padding: 3vh 0;
 }
 
 .content_block:first-child {
@@ -128,7 +128,7 @@ div:has(.right_hidden) {
 
 @media (max-width: 768px) {
     .content_block {
-        margin: 5vh 0;
-        padding: 3vh 0;
+        margin: 3vh 0;
+        padding: 1vh 0;
     }
 }

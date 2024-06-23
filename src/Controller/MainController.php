@@ -8,6 +8,7 @@ use App\Entity\Special;
 use App\Entity\WorkPhoto;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -23,53 +24,62 @@ class MainController extends AbstractController
             'groups' => $entityManager->getRepository(Group::class)->findAll(),
             'specials' => $entityManager->getRepository(Special::class)->findAll(),
             'reviews' => $entityManager->getRepository(Review::class)->findAll(),
-            'worksPhotosByGroups' => $this->getPhotosByGroups($entityManager),
+            'galleryCategories' => $this->getPhotosByGroups(),
         ]);
     }
 
-    protected function getPhotosByGroups(EntityManagerInterface $entityManager)
+    protected function getPhotosByGroups()
     {
-        $workPhotosByCategory = [];
-        $groups = $entityManager->getRepository(Group::class)->findAll();
+        $galleryCategories = [
+            'polishing' => [
+                'label' => 'Полировка',
+                'images' => [],
+                'video' => [],
+            ],
+            'washing' => [
+                'label' => 'Мойка',
+                'images' => [],
+                'video' => [],
+            ],
+            'okleika' => [
+                'label' => 'Оклейка',
+                'images' => [],
+                'video' => [],
+            ],
+            'bronning' => [
+                'label' => 'Бронирование',
+                'images' => [],
+                'video' => [],
+            ],
+            'shumka' => [
+                'label' => 'Шумоизоляция',
+                'images' => [],
+                'video' => [],
+            ],
+        ];
 
-        foreach ($groups as $group) {
-            $workPhotosByCategory[$group->getName()]['group'] = $group;
-
-            $categories = $group->getCategories()->getValues();
-
-            foreach ($categories as $category) {
-                $photos = $category->getWorkPhotos()->getValues();
-
-                if (empty($photos)) {
+        foreach ($galleryCategories as $category => $data) {
+            foreach(['images', 'video'] as $type) {
+                try {
+                    $finder = Finder::create()
+                        ->in($type . '\\main\\works\\' . $category);
+                } catch (\Exception $ex) {
                     continue;
                 }
 
-                $works = [
-                    'images' => [],
-                    'videos' => [],
-                ];
+                $files = iterator_to_array($finder);
 
-                /** @var WorkPhoto $photo */
-                foreach ($photos as $photo) {
-                    if (!file_exists($photo->getPath())) {
-                        continue;
-                    }
-
-                    $works[$photo->getType() === 'img' ? 'images' : 'videos'][] = $photo;
+                if (empty($files)) {
+                    continue 2;
                 }
 
-                $workPhotosByCategory[$group->getName()]['categories'][$category->getName()] = [
-                    'category' => $category,
-                    'works' => $works,
-                ];
-            }
-
-            if (empty($workPhotosByCategory[$group->getName()]['categories'])) {
-                unset($workPhotosByCategory[$group->getName()]);
+                foreach ($files as $file) {
+                    $galleryCategories[$category][$type][] = $file->getPathname();
+                }
             }
         }
 
-        return $workPhotosByCategory;
+        return $galleryCategories;
     }
 
     protected function trySendFormData()

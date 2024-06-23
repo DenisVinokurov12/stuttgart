@@ -1,18 +1,22 @@
-.preview {
-    height: 100vh;
-    overflow: hidden;
-    z-index: -100;
-    position: relative;
+.preview_mobile {
+    display: none;
 }
 
-.preview video {
+.preview, .preview_mobile {
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    cursor: default;
+}
+
+.preview video, .preview_mobile video {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
 }
 
-.preview .overlay {
+.preview .overlay, .preview_mobile .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -22,7 +26,7 @@
     background-color: rgba(0, 0, 0, 0.6);
 }
 
-.preview .motto {
+.preview .motto, .preview_mobile .motto {
     position: absolute;
     top: 25%;
     color: #fff200;
@@ -31,24 +35,85 @@
     font-family: 'RussoOne', sans-serif;
 }
 
+.preview .socials, .preview_mobile .socials {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    color: #fff200;
+    z-index: 50;
+    font-family: 'RussoOne', sans-serif;
+}
+
+.preview .socials {
+    width: 30%;
+    top: 50%;
+    font-size: 36px;
+}
+
+.preview_mobile .socials {
+    width: 100%;
+    top: 90%;
+    font-size: 24px;
+}
+
+.preview .socials > div, .preview_mobile .socials > div {
+    text-align: center;
+    width: 50%;
+}
+
+.preview .socials .links {
+    margin-top: 15px;
+}
+
+.preview .socials img, .preview_mobile .socials img {
+    width: 40px;
+    cursor: pointer;
+}
+.preview_mobile .socials > div {
+    opacity: 90%;
+}
+
+.preview_mobile .socials .links {
+    opacity: 70%;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 1596px) {
+    .preview video {
+        height: 100%;
+        width: auto;
+    }
+}
+
 @media (max-width: 996px) {
-    .preview .motto {
+    .preview .motto, .preview_mobile .motto {
         font-size: 80px;
     }
 }
 
 @media (max-width: 798px) {
-    .preview video {
+    .preview_mobile {
+        display: block;
+    }
+
+    .preview {
+        display: none;
+    }
+
+    .preview video, .preview_mobile video {
         height: 100vh;
         object-fit: cover;
     }
-    .preview .motto {
+    .preview .motto, .preview_mobile .motto {
         font-size: 60px;
     }
 }
 
 @media (max-width: 596px) {
-    .preview .motto {
+    .preview .motto, .preview_mobile .motto {
         font-size: 36px;
     }
 }

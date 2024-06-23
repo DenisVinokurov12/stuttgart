@@ -6,7 +6,7 @@
 
 .preview img {
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 .overlay_wrapper {
@@ -69,6 +69,11 @@
 @media (max-width: 1320px) {
     .preview .category_info {
         font-size: 32px;
+    }
+
+    .preview img {
+        width: auto;
+        height: 100%;
     }
 
     .preview .category_description_wrapper .category_description {

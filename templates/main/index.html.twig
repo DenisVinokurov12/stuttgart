@@ -10,12 +10,56 @@
 {% block body %}
     <div class="preview prime_block">
         <video autoplay playsinline muted loop id="preview_video">
-            <source src="{{ asset('video/preview' ~ random(1, 3) ~ '.MOV') }}" type="video/mp4">
+            <source src="{{ asset('video/preview.MOV') }}" type="video/mp4">
         </video>
         <div class="overlay"></div>
         <div class="container" style="position: relative; height: 90vh; overflow: visible">
             <div class="motto left_hidden">
                 Детейлинг-центр
+            </div>
+            <div class="socials right_hidden">
+                <div class="socials_detailing">
+                    Детейлинг
+                    <div class="links">
+                        <a href="https://wa.me/79826269988" target="_blank"><img src="{{ asset('images/watsapp.svg') }}" alt=""></a>
+                        <a href="https://t.me/andrey_detailingq" target="_blank"><img src="{{ asset('images/tg.svg') }}" alt=""></a>
+                    </div>
+                </div>
+                <div class="socials_washing">
+                    Мойка
+                    <div class="links">
+                        <a href="https://wa.me/79220306999" target="_blank"><img src="{{ asset('images/watsapp.svg') }}" alt=""></a>
+                        <a href="https://vk.com/stuttgart_ekb" target="_blank"><img src="{{ asset('images/vk.svg') }}" alt=""></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview_mobile prime_block">
+        <video autoplay playsinline muted loop id="preview_video">
+            <source src="{{ asset('video/preview_mobile' ~ random(1, 2) ~ '.MOV') }}" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="container" style="position: relative; height: 90vh; overflow: visible">
+            <div class="motto left_hidden">
+                Детейлинг-центр
+            </div>
+            <div class="socials right_hidden">
+                <div class="socials_detailing">
+                    Детейлинг
+                    <div class="links">
+                        <a href="https://wa.me/79826269988" target="_blank"><img src="{{ asset('images/watsapp.svg') }}" alt=""></a>
+                        <a href="https://t.me/andrey_detailingq" target="_blank"><img src="{{ asset('images/tg.svg') }}" alt=""></a>
+                    </div>
+                </div>
+                <div class="socials_washing">
+                    Мойка
+                    <div class="links">
+                        <a href="https://wa.me/79220306999" target="_blank"><img src="{{ asset('images/watsapp.svg') }}" alt=""></a>
+                        <a href="https://vk.com/stuttgart_ekb" target="_blank"><img src="{{ asset('images/vk.svg') }}" alt=""></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -25,7 +69,7 @@
         <div class="container">
             <div class="first_line left_hidden">
                 <span class="about_us_main">
-                    <span class="main_color">Stuttgart</span> - уникальный детейлинг-салон Екатеринбурга, со своей собственной философией и подходом к гостям. Машина нашего клиента - наша машина и такой подход сохраняется вне зависимости от оказываемой услуги и обслуживаемого автомобиля.
+                    <span class="main_color"><a href="/">Stuttgart</a></span> - уникальный детейлинг-салон Екатеринбурга, со своей собственной философией и подходом к гостям. Машина нашего клиента - наша машина и такой подход сохраняется вне зависимости от оказываемой услуги и обслуживаемого автомобиля.
                 </span>
                 <img src="{{ asset('images/main/aboutUs/inside2.webp') }}" alt="">
                 <img src="{{ asset('images/main/aboutUs/place.webp') }}" alt="">
@@ -48,7 +92,7 @@
     <div class="about_us_mobile content_block prime_block" id="about_us_mobile">
         <div class="container">
             <span class="about_us_main left_hidden">
-                <span class="main_color">Stuttgart</span> - уникальный детейлинг-салон Екатеринбурга, со своей собственной философией и подходом к гостям. Машина нашего клиента - наша машина и такой подход сохраняется вне зависимости от оказываемой услуги и обслуживаемого автомобиля.
+                <span class="main_color"><a href="/">Stuttgart</a></span> - уникальный детейлинг-салон Екатеринбурга, со своей собственной философией и подходом к гостям. Машина нашего клиента - наша машина и такой подход сохраняется вне зависимости от оказываемой услуги и обслуживаемого автомобиля.
             </span>
             <div class="images right_hidden">
                 <img  data-fancybox="aboutUs" src="{{ asset('images/main/aboutUs/inside2.webp') }}" alt="">
@@ -143,22 +187,16 @@
     </div>
 
     <div class="specials content_block main_block">
-        <div class="specials_wrapper">
-            <div class="container">
-                <div class="slider" data-currentSlide="0">
-                    <span class="prev"><img src="{{ asset('images/main/specials/leftArrow.svg') }}" alt=""></span>
-                    <div class="main_wrapper">
-                        {% for key, special in specials %}
-                            <span class="slider_item" data-key="{{ key }}" title="{{ special.getText() }}" style="background: linear-gradient(
-                                    rgba(0, 0, 0, 0.7),
-                                    rgba(0, 0, 0, 0.7)
-                                    ), url({{ asset('images/main/services/detailing.jpg') }});">
-                                <span class="slider_item_flex_wrapper"><p>{{ special.getLabel() }}</p></span>
-                            </span>
-                        {% endfor %}
-                    </div>
-                    <span class="next"><img src="{{ asset('images/main/specials/rightArrow.svg') }}" alt=""></span>
-                </div>
+        <div class="container">
+            <div class="main_wrapper">
+                {% for key, special in specials %}
+                    <span class="slider_item" title="{{ special.getText() }}" style="background: linear-gradient(
+                            rgba(0, 0, 0, 0.7),
+                            rgba(0, 0, 0, 0.7)
+                            ), url({{ asset('images/main/services/detailing.jpg') }});">
+                        <span class="slider_item_flex_wrapper"><p>{{ special.getLabel() }}</p></span>
+                    </span>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -226,44 +264,82 @@
     </div>
     <script type="text/javascript" src="{{ asset('js/main/reviews_mobile.js') }}"></script>
 
-    {% if worksPhotosByGroups is not empty %}
-        <div class="works content_block main_block desktop_block" id="works">
-            <div class="container">
-                {% for key, groupData in worksPhotosByGroups %}
-                    <div class="group_wrapper {% if key != 'detailing' %}hidden{% endif %}" >
-                        {% for categoryData in groupData.categories %}
-                            <div class="category_wrapper">
-                                <div class="category_title">{{ groupData.group.getLabel() }}. {{ categoryData.category.getLabel() }}</div>
-                                <div class="gallery">
-                                    <div class="images">
-                                        {% if categoryData.works.images is not empty %}
-                                            {% for photo in categoryData.works.images %}
-                                                <img src="{{ asset(photo.getPath()) }}" alt="" data-fancybox="{{ categoryData.category.getName() }}">
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
 
-                                    <br>
-
-                                    <div class="videos">
-                                        {% if categoryData.works.videos is not empty %}
-                                            {% for video in categoryData.works.videos %}
-                                                <video autoplay playsinline muted loop id="preview_video">
-                                                    <source src="{{ asset(video.getPath()) }}" type="video/mp4">
-                                                </video>
-                                            {% endfor %}
-                                        {% endif %}
-                                    </div>
-                                </div>
-                            </div>
-                        {% endfor %}
-                    </div>
+    <div class="works content_block main_block desktop_block" id="works">
+        <div class="container">
+            <div class="blockTitle">
+                Галерея работ
+            </div>
+            <div class="works_wrapper">
+                {% for key, category in galleryCategories %}
+                    {% if category.images is not empty %}
+                        <div class="category_wrapper">
+                            {% for imgKey, imgPath in category.images %}
+                                {% if imgKey == 0 %}
+                                    <div class="overlay"></div>
+                                    <a href="{{ asset(imgPath) }}" data-fancybox="{{ key }}">
+                                        <div class="work_category_preview" style="background: url('{{ asset(imgPath) }}') no-repeat center center / cover;">
+                                            <div class="categoryLabel">
+                                                {{ category.label }}
+                                            </div>
+                                            <img src="{{ asset(imgPath) }}" alt="">
+                                        </div>
+                                    </a>
+                                {% else %}
+                                    <img src="{{ asset(imgPath) }}" alt="" data-fancybox="{{ key }}" style="display: none">
+                                {% endif %}
+                            {% endfor %}
+                            {% for videoKey, videoPath in category.video %}
+                                <a href="{{ asset(videoPath) }}" alt="" data-fancybox="{{ key }}" style="display: none;">
+                                    <img src="{{ asset('video/mp4.svg') }}" alt="">
+                                </a>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
                 {% endfor %}
-                <div class="all_works"><span><a>Все работы</a></span></div>
             </div>
         </div>
-        <script type="text/javascript" src="{{ asset('js/main/works.js') }}"></script>
-    {% endif %}
+    </div>
+
+
+{#    {% if worksPhotosByGroups is not empty %}#}
+{#        <div class="works content_block main_block desktop_block" id="works">#}
+{#            <div class="container">#}
+{#                {% for key, groupData in worksPhotosByGroups %}#}
+{#                    <div class="group_wrapper {% if key != 'detailing' %}hidden{% endif %}" >#}
+{#                        {% for categoryData in groupData.categories %}#}
+{#                            <div class="category_wrapper">#}
+{#                                <div class="category_title">{{ groupData.group.getLabel() }}. {{ categoryData.category.getLabel() }}</div>#}
+{#                                <div class="gallery">#}
+{#                                    <div class="images">#}
+{#                                        {% if categoryData.works.images is not empty %}#}
+{#                                            {% for photo in categoryData.works.images %}#}
+{#                                                <img src="{{ asset(photo.getPath()) }}" alt="" data-fancybox="{{ categoryData.category.getName() }}">#}
+{#                                            {% endfor %}#}
+{#                                        {% endif %}#}
+{#                                    </div>#}
+
+{#                                    <br>#}
+
+{#                                    <div class="videos">#}
+{#                                        {% if categoryData.works.videos is not empty %}#}
+{#                                            {% for video in categoryData.works.videos %}#}
+{#                                                <video autoplay playsinline muted loop id="preview_video" data-fancybox="{{ categoryData.category.getName() }}">#}
+{#                                                    <source src="{{ asset(video.getPath()) }}" type="video/mp4">#}
+{#                                                </video>#}
+{#                                            {% endfor %}#}
+{#                                        {% endif %}#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        {% endfor %}#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{#                <div class="all_works"><span><a>Все работы</a></span></div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <script type="text/javascript" src="{{ asset('js/main/works.js') }}"></script>#}
+{#    {% endif %}#}
 
     <div class="form content_block main_block" id="form">
         <div class="container">
