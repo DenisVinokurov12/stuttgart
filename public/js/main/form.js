@@ -13,14 +13,14 @@ $(function() {
         categoryInput.val($(this).data('value')).removeClass('focused');
     });
 
-    form.on('submit', function(e) {
+    form.find('form').on('submit', function(e) {
         e.preventDefault();
 
         $.ajax({
             url: "/send/application",
             type: "POST",
             data: {
-                form: form.serialize(),
+                form: $(this).serialize(),
             },
             success: function(result) {
                 result = JSON.parse(result);

@@ -5,7 +5,6 @@ namespace App\Controller;
 use App\Entity\Group;
 use App\Entity\Review;
 use App\Entity\Special;
-use App\Entity\WorkPhoto;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
@@ -17,8 +16,6 @@ class MainController extends AbstractController
     #[Route('/', name: 'main_page')]
     public function index(EntityManagerInterface $entityManager): Response
     {
-//        $this->trySendFormData();
-
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',
             'groups' => $entityManager->getRepository(Group::class)->findAll(),
@@ -80,18 +77,6 @@ class MainController extends AbstractController
         }
 
         return $galleryCategories;
-    }
-
-    protected function trySendFormData()
-    {
-        dump($_REQUEST);die;
-        $formData = $_REQUEST;
-
-        if (empty($formData['name']) || empty($formData['phone']) || empty($formData['category'])) {
-            return;
-        }
-
-
     }
 
 }
