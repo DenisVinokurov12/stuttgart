@@ -26,7 +26,7 @@
     height: 200px;
     margin: 30px 10px;
     position: relative;
-    box-shadow: 0 0 25px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.2);
 }
 
 .services .overlay, .services_mobile .overlay {
@@ -163,7 +163,7 @@
 
 @media (max-width: 768px) {
     .services_mobile .categories_container .categories_box ul .category {
-        padding: 6px 35px;
+        padding: 6px 12px;
     }
 
     .services {
@@ -175,13 +175,13 @@
     }
 
     .services_mobile .groups {
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         position: relative;
     }
 
     .services_mobile .groups .group {
-        width: 80vw;
+        width: 100%;
         height: auto;
         box-shadow: none;
     }
@@ -227,24 +227,29 @@
     .services_mobile .categories_container {
         display: flex;
         height: 100%;
+        overflow-y: auto;
         flex-direction: column;
     }
 
     .services_mobile .categories_box {
-        flex-grow: 1;
+        flex-grow: inherit;
     }
 
     .services_mobile .categories_container .group_title {
-        font-size: 28px;
+        font-size: 20px;
     }
 
     .services_mobile .categories_container .categories_box ul .category {
-        font-size: 12px;
+        font-size: 18px;
         align-items: center;
     }
 
+    .services_mobile .categories_container .categories_box ul .category .category_title {
+        max-width: 65%;
+    }
+
     .services_mobile .categories_container .categories_box ul .category .category_min_price {
-        font-size: 9px;
+        font-size: 16px;
     }
 
     .services .overlay, .services_mobile .overlay {
