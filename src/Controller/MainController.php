@@ -59,7 +59,7 @@ class MainController extends AbstractController
             foreach(['images', 'video'] as $type) {
                 try {
                     $finder = Finder::create()
-                        ->in($type . '\\main\\works\\' . $category);
+                        ->in($type . '/main/works/' . $category);
                 } catch (\Exception $ex) {
                     continue;
                 }
