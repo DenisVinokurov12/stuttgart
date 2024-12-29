@@ -21,3 +21,4 @@
 
 .idea/
 /public_html
+.PHP_errors.log
